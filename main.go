@@ -34,7 +34,20 @@ func main() {
 			fmt.Println("Mostrando contactos...")
 			MostrarContactos()
 		case 3:
-			fmt.Println("Saliendo del sistema...")
+			fmt.Println("\n[Opción 3: Mostrar contacto especificado por nombre]")
+			// ...
+
+		case 4:
+			fmt.Println("\n--- Contactos por Fecha de Cumpleaños (Desde hoy) ---")
+			gestion.ImprimirTablaContactos(...)
+
+		case 5:
+			fmt.Println("\n--- Contactos Ordenados Alfabéticamente ---")
+			gestion.ImprimirTablaContactos(...)
+
+		case 6:
+			fmt.Println("Guardando cambios en el archivo y saliendo del sistema...")
+			storage.GuardarContactos(listaContactos)
 			os.Exit(0)
 		default:
 			fmt.Println("Opción no válida. Intente nuevamente.")
