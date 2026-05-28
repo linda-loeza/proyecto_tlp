@@ -14,5 +14,5 @@ NOTA: El análisis esta hecho por IA para comprobar que falta en el proyecto, qu
 
 - Persistencia real en contactos.txt: persistencia.go solo imprime mensajes; no lee/escribe archivo y tampoco se llama desde main.go (el PDF pide cargar al iniciar y guardar al salir).
 - Ordenamiento al listar por nombre con sort: actualmente lista en el orden de inserción (ver gestion.go).
-- Validaciones básicas (parcial): se valida formato de fecha dd/mm (ej: dd/mm) y email (contiene '@' y '.'); falta validar teléfono y otros formatos.
+- Validaciones básicas (parcial): se valida formato de fecha dd/mm (ej: dd/mm) y email (contiene '@' y '.')y validación básica de teléfono, agregar en caso de necesitar usar otros formatos.
 - Entrada de nombre: se captura con fmt.Scanln (1 palabra); actualmente el prompt pide “Nombre (Sin apellidos)”. Si se requiere “nombre completo”, habría que leer línea completa.
