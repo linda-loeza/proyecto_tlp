@@ -9,7 +9,7 @@ import (
 
 const NombreArchivo = "contactos.json"
 
-func CargarContactos(contactos []gestion.Contacto) ([]gestion.Contacto, error) {
+func CargarContactos() ([]gestion.Contacto, error) {
 	fmt.Println("Buscando datos guardados...")
 	if _, err := os.Stat(NombreArchivo); os.IsNotExist(err) {
 		fmt.Println("No se encontraron datos guardados.")

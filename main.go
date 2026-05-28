@@ -50,23 +50,24 @@ func main() {
 		}
 		switch opcion {
 		case 1:
-			fmt.Println("\n[Opción 1: Agregar contacto]")
-			gestion.AgregarContacto()
+			listaContactos = gestion.AgregarContacto(listaContactos)
+
 		case 2:
-			fmt.Println("\n[Opción 2: Borrar un contacto]")
-			// agregar
+			listaContactos = gestion.EliminarContacto(listaContactos)
 
 		case 3:
-			fmt.Println("\n[Opción 3: Mostrar contacto especificado por nombre]")
-			// ...
+			// Solo lee la lista para buscar e imprimir en pantalla
+			gestion.BuscarContacto(listaContactos)
 
 		case 4:
 			fmt.Println("\n--- Contactos por Fecha de Cumpleaños (Desde hoy) ---")
-			//	gestion.ImprimirTablaContactos(...)
+			listaCumples := gestion.OrdenarPorCumpleanos(listaContactos)
+			gestion.ImprimirTablaContactos(listaCumples)
 
 		case 5:
 			fmt.Println("\n--- Contactos Ordenados Alfabéticamente ---")
-			//gestion.ImprimirTablaContactos(...)
+			listaAlfabetica := gestion.OrdenarAlfabeticamente(listaContactos)
+			gestion.ImprimirTablaContactos(listaAlfabetica)
 
 		case 6:
 			fmt.Println("Guardando cambios en el archivo y saliendo del sistema...")
