@@ -78,6 +78,33 @@ func normalizarDDMM(fecha string) (string, bool) {
 	return fmt.Sprintf("%02d/%02d", dia, mes), true
 }
 
+// FiltrarCumpleanosEnFecha devuelve los contactos cuyo cumpleaños coincide con la fecha dd/mm.
+func FiltrarCumpleanosEnFecha(contactos []Contacto, ddmm string) []Contacto {
+	fechaObjetivo, ok := normalizarDDMM(ddmm)
+	if !ok {
+		return nil
+	}
+
+	var resultados []Contacto
+	for _, c := range contactos {
+		fechaContacto, ok := normalizarDDMM(c.Cumpleanos)
+		if !ok {
+			continue
+		}
+		if fechaContacto == fechaObjetivo {
+			resultados = append(resultados, c)
+		}
+	}
+	return resultados
+}
+
+// FiltrarCumpleanosHoy devuelve los contactos que cumplen años hoy.
+func FiltrarCumpleanosHoy(contactos []Contacto) []Contacto {
+	ahora := time.Now()
+	hoy := fmt.Sprintf("%02d/%02d", ahora.Day(), int(ahora.Month()))
+	return FiltrarCumpleanosEnFecha(contactos, hoy)
+}
+
 func validarEmail(email string) bool {
 	e := strings.TrimSpace(email)
 	at := strings.Index(e, "@")
